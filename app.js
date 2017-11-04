@@ -11,8 +11,13 @@ var readable = {
   '3': 'Lizard'
 };
 
+
 function getComuterChoice(){
-  return Math.floor(Math.random() * 5);
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", 'http://localhost:1234/computer_choice', false ); // false for synchronous request
+    xmlHttp.send( null );
+    console.log(xmlHttp.responseText)
+    return xmlHttp.responseText;
 }
 
 var computerChoice = {
@@ -44,8 +49,6 @@ var paragraph = document.querySelector('p')
 var assignClick = function(tag, val) {
   tag.addEventListener('click', function() {
     playerChoice = parseInt(val);
-    console.log(playerChoice);
-    console.log(val);
     computerChoice.init();
 
     paragraph.innerText = 'You chose: ' + readable[val] + ',   ';
