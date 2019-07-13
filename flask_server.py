@@ -1,6 +1,5 @@
 from random import randint
 from flask import Flask
-from flask.templating import render_template
 
 app = Flask(__name__)
 
@@ -18,6 +17,7 @@ def choose():
     # In the future it might be more complex
     choice = str(randint(0, 4))
     return app.response_class(choice)
+
 
 if __name__ == '__main__':
     print ('Running Server')

@@ -31,9 +31,14 @@ var computerChoice = {
 
 var chooseWinner = function(player, cpu) {
 
+
+  player = parseInt(player)
+  cpu = parseInt(cpu)
+
   if(player === cpu) {
     return 'The game is tied. Try again?';
   }
+
   if((cpu + 1) % 5 == player || (cpu + 2) % 5 == player) {
     score++;
     return "You won!";
